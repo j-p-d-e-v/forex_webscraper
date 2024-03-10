@@ -1,0 +1,10 @@
+.vscode
+target
+debug/
+migration/target
+migration/debug/
+user-data
+screenshots/*.jpeg
+Cargo.lock
+**/*.rs.bk
+*.pdb

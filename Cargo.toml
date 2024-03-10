@@ -1,0 +1,14 @@
+[package]
+name = "forex_webscraper"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+headless_chrome = "1.0.9"
+sea-orm = { version = "0.12", features = ["sqlx-mysql", "runtime-async-std-rustls", "macros"] }
+serde = "1.0.197"
+serde_json = "1.0.114"
+tokio = { version = "1.36.0", features = ["full"] }
