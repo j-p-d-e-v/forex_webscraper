@@ -46,11 +46,15 @@ async fn main(){
             );
         }
         let total_news: usize = ff_news.len();
+        let chunk_size: usize = total_news / 24;
         
         forex_factory_news::Entity::delete_many().filter(
             forex_factory_news::Column::Year.eq(year)
-        ).exec(&db_conn).await.unwrap();
-        forex_factory_news::Entity::insert_many(ff_news).exec(&db_conn).await.unwrap();
+        ).exec(&db_conn).await.unwrap();        
+        for chunk_ff_news in ff_news.chunks(chunk_size){
+
+            forex_factory_news::Entity::insert_many(chunk_ff_news.to_vec()).exec(&db_conn).await.unwrap();
+        }
         println!("INSERTED {} news for year {}",total_news,year);
     }
 }
