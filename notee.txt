@@ -1,8 +1,0 @@
-sea-orm-cli migrate generate "forex_factory_news"
-
-
-cargo run -- -u mysql://root:rustpassword@169.254.121.125/forexfactory
-
-sea-orm-cli generate entity --database-url mysql://root:rustpassword@169.254.121.125/forexfactory
-
-sea-orm-cli generate entity --database-url mysql://root:rustpassword@169.254.121.125/forex_news -o entity/src
